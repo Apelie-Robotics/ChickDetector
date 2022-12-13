@@ -3,6 +3,7 @@ import cv2
 from numpy import mean
 import os
 from tqdm import tqdm
+from chicken_filter import chikenFilter 
 
 
 def img_ok(img):
@@ -32,4 +33,9 @@ def imgRead(path):
             count += 1
 
 
-imgRead('pics')
+img = cv2.imread('./data/All/image-0.jpg')
+
+inter = chikenFilter.loadInterpreter()
+res = chikenFilter.predictAI(img=img,interpreter=inter)
+print(res)
+

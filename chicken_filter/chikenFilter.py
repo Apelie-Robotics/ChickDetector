@@ -48,8 +48,8 @@ def resizeAndPad(img, size, padColor=0):
 
     return scaled_img
 
-def loadInterpreter(path):
-    interpreter = tflite.Interpreter(model_path=path)
+def loadInterpreter():
+    interpreter = tflite.Interpreter(model_path='chicken_filter/model.tflite')
     return interpreter
 
 
@@ -105,6 +105,3 @@ if __name__ == "__main__":
     outDir = 'output/'
     dataDir = 'data/All/'
     readDir(inte, dataDir, outDir)
-
-
-    from  chikenFilter import loadInterpreter, imgRead
