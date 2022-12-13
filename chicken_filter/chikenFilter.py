@@ -1,6 +1,7 @@
 import os
 import cv2
 import numpy as np
+import pathlib
 import tflite_runtime.interpreter as tflite
 
 img_s = [224, 168]
@@ -49,7 +50,8 @@ def resizeAndPad(img, size, padColor=0):
     return scaled_img
 
 def loadInterpreter():
-    interpreter = tflite.Interpreter(model_path='chicken_filter/model.tflite')
+    path = str(pathlib.Path(__file__).parent.resolve())
+    interpreter = tflite.Interpreter(model_path=path+'/model.tflite')
     return interpreter
 
 
